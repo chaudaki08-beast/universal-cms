@@ -1,0 +1,9 @@
+# Serve uploaded media, but never execute code from this directory.
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phar|pl|py|cgi|asp|sh|exe)$">
+    Require all denied
+</FilesMatch>
+Options -ExecCGI -Indexes
+AddType text/plain .php .phtml .php5 .phar

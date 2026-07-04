@@ -1,0 +1,174 @@
+/* ============================================================
+   Universal CMS — Front-end theme (driven by CSS variables
+   set per-site in the layout from admin Theme settings)
+   ============================================================ */
+*{margin:0;padding:0}
+body.cms-body{font-family:var(--font-body);color:#1e293b;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-head);font-weight:700;line-height:1.2}
+a{text-decoration:none;color:var(--c-primary)}
+img{max-width:100%}
+.container{max-width:var(--maxw)}
+main{min-height:50vh}
+
+.btn-theme{padding:.7rem 1.6rem;font-weight:600;transition:.25s;display:inline-block}
+.section-pad{padding:80px 0}
+.section-pad-xl{padding:120px 0}
+.section-heading{font-size:clamp(1.6rem,3vw,2.4rem);position:relative}
+.cms-section + .cms-section{}
+
+/* Header ---------------------------------------------------- */
+.site-header.is-sticky{position:sticky;top:0;z-index:1030}
+.topbar{background:var(--c-secondary);color:#cbd5e1;font-size:.85rem;padding:8px 0}
+.topbar a{color:#cbd5e1;margin-left:14px;font-size:1rem}
+.topbar a:hover{color:#fff}
+.main-nav{background:#fff;box-shadow:0 2px 18px rgba(0,0,0,.06);padding:.6rem 0}
+.navbar-brand .brand-text{font-family:var(--font-head);font-weight:800;font-size:1.4rem;color:var(--c-secondary)}
+.main-nav .nav-link{font-weight:600;color:#334155;margin:0 .35rem;position:relative}
+.main-nav .nav-link:hover{color:var(--c-primary)}
+.main-nav .nav-link::after{content:"";position:absolute;left:.6rem;right:.6rem;bottom:0;height:2px;background:var(--c-primary);transform:scaleX(0);transition:.25s}
+.main-nav .nav-link:hover::after{transform:scaleX(1)}
+
+/* Hero ------------------------------------------------------ */
+.hero-wrap{background-size:cover;background-position:center;color:#fff;position:relative}
+.hero-title{font-size:clamp(2rem,5vw,3.6rem);margin-bottom:1rem}
+.hero-sub{font-size:clamp(1rem,2vw,1.35rem);opacity:.92;margin-bottom:1.8rem}
+.hero-actions .btn{margin:.3rem}
+
+/* Cards ----------------------------------------------------- */
+.feature-card{background:#fff;border:1px solid #eef2f7;border-radius:var(--radius);padding:2rem;text-align:center;transition:.3s;box-shadow:0 6px 20px rgba(15,23,42,.04)}
+.feature-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.1)}
+.feature-icon{width:70px;height:70px;border-radius:50%;background:color-mix(in srgb,var(--c-primary) 12%,#fff);color:var(--c-primary);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 1.2rem}
+.feature-img{width:100%;height:180px;object-fit:cover;border-radius:var(--radius);margin-bottom:1rem}
+.feature-title{font-size:1.2rem;margin-bottom:.6rem}
+.feature-text{color:#64748b;font-size:.95rem}
+.feature-link{font-weight:600;font-size:.9rem}
+
+/* Gallery --------------------------------------------------- */
+.gallery-item img{width:100%;height:220px;object-fit:cover;border-radius:var(--radius);transition:.3s}
+.gallery-item:hover img{transform:scale(1.04);filter:brightness(.9)}
+
+/* Testimonials ---------------------------------------------- */
+.testimonial-card{background:#fff;border-radius:var(--radius);padding:2rem;box-shadow:0 8px 26px rgba(15,23,42,.06)}
+.testimonial-card .stars{color:#f59e0b;margin-bottom:1rem}
+.testimonial-card .quote{font-style:italic;color:#475569;margin-bottom:1.4rem}
+.testimonial-card .author{display:flex;align-items:center;gap:.8rem}
+.testimonial-card .avatar{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.testimonial-card .role{display:block;font-size:.85rem;color:#94a3b8}
+
+/* FAQ ------------------------------------------------------- */
+.faq-accordion .accordion-button{font-weight:600;font-family:var(--font-head)}
+.faq-accordion .accordion-button:not(.collapsed){background:color-mix(in srgb,var(--c-primary) 8%,#fff);color:var(--c-primary)}
+
+/* Pricing --------------------------------------------------- */
+.price-card{background:#fff;border:1px solid #eef2f7;border-radius:var(--radius);padding:2.2rem;text-align:center;position:relative;transition:.3s}
+.price-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,23,42,.1)}
+.price-featured{border:2px solid var(--c-primary);box-shadow:0 18px 44px rgba(37,99,235,.16)}
+.price-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--c-primary);color:#fff;font-size:.75rem;padding:.3rem .9rem;border-radius:50px}
+.price-amount{font-size:2.6rem;font-weight:800;font-family:var(--font-head);color:var(--c-secondary);margin:.6rem 0 1.2rem}
+.price-amount .period{font-size:1rem;font-weight:500;color:#94a3b8}
+.price-features{list-style:none;text-align:left;margin-bottom:1.6rem}
+.price-features li{padding:.5rem 0;border-bottom:1px dashed #eef2f7}
+.price-features i{color:#16a34a;margin-right:.5rem}
+
+/* CTA ------------------------------------------------------- */
+.cta-box{background:linear-gradient(120deg,var(--c-primary),var(--c-secondary));border-radius:calc(var(--radius) + 6px);color:#fff;padding:3.5rem 2rem}
+.cta-title{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:.6rem}
+.cta-sub{opacity:.9;margin-bottom:1.6rem}
+
+/* Contact form ---------------------------------------------- */
+.cms-form .form-control{border-radius:var(--radius);padding:.75rem 1rem;border:1px solid #e2e8f0}
+.cms-form .form-control:focus{border-color:var(--c-primary);box-shadow:0 0 0 .2rem color-mix(in srgb,var(--c-primary) 20%,transparent)}
+.contact-info p{margin-bottom:1rem;color:#475569}
+.contact-info i{color:var(--c-primary);width:24px}
+
+/* Rich text / single image ---------------------------------- */
+.rich-text{font-size:1.05rem;color:#334155}
+.rich-text img{border-radius:var(--radius);margin:1rem 0}
+.single-image figcaption{margin-top:.6rem;color:#94a3b8;font-size:.9rem}
+
+/* Footer ---------------------------------------------------- */
+.site-footer{background:var(--c-secondary);color:#cbd5e1;padding:64px 0 28px}
+.site-footer .footer-brand,.site-footer .footer-title{color:#fff}
+.footer-title{font-size:1rem;margin-bottom:1.1rem}
+.footer-links,.footer-contact{list-style:none}
+.footer-links a{color:#cbd5e1;display:inline-block;padding:.3rem 0}
+.footer-links a:hover{color:#fff;padding-left:5px;transition:.2s}
+.footer-contact li{margin-bottom:.7rem}
+.footer-divider{border-color:rgba(255,255,255,.12);margin:2.4rem 0 1.4rem}
+.text-muted-2{color:#94a3b8}
+.social-icons a{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;margin-right:.4rem;transition:.25s}
+.social-icons a:hover{background:var(--c-primary)}
+.topbar .social-icons a{background:transparent;width:auto;height:auto}
+
+/* Toasts ---------------------------------------------------- */
+.cms-toast-wrap{position:fixed;right:20px;bottom:20px;z-index:1080;display:flex;flex-direction:column;gap:10px}
+.cms-toast{animation:slideIn .3s ease;min-width:240px}
+@keyframes slideIn{from{transform:translateX(100%);opacity:0}to{transform:none;opacity:1}}
+
+/* Shop ------------------------------------------------------ */
+.product-card{background:#fff;border:1px solid #eef2f7;border-radius:var(--radius);overflow:hidden;transition:.3s;height:100%}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(15,23,42,.1)}
+.product-card .p-img{height:230px;object-fit:cover;width:100%}
+.product-card .p-body{padding:1.1rem}
+.product-card .p-price{font-weight:700;color:var(--c-secondary)}
+.product-card .p-sale{color:#ef4444}
+.product-card .p-old{color:#94a3b8;text-decoration:line-through;font-size:.85rem;margin-left:.4rem}
+.badge-sale{background:#ef4444;color:#fff;font-size:.72rem;padding:.25rem .55rem;border-radius:6px;position:absolute;top:10px;left:10px}
+
+@media(max-width:768px){.section-pad{padding:56px 0}.section-pad-xl{padding:70px 0}}
+
+/* ============================================================
+   Layout customization (per-section design + header/footer)
+   ============================================================ */
+
+/* --- Per-section design --- */
+.cms-section{position:relative;background-repeat:no-repeat}
+.sec-overlay{position:absolute;inset:0;z-index:0;pointer-events:none}
+.sec-inner{position:relative;z-index:1}
+.sec-width-narrow .container{max-width:760px}
+.sec-width-full .container{max-width:100%;padding-left:clamp(1rem,4vw,3rem);padding-right:clamp(1rem,4vw,3rem)}
+.sec-align-center{text-align:center}
+.sec-align-left{text-align:left}
+.sec-align-right{text-align:right}
+.sec-text-light,
+.sec-text-light :is(h1,h2,h3,h4,h5,h6,p,li,span,small,.section-heading,.feature-title,.feature-text,.price-amount){color:#fff !important}
+.sec-text-light .feature-card,.sec-text-light .testimonial-card,.sec-text-light .price-card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+.sec-text-dark,
+.sec-text-dark :is(h1,h2,h3,h4,h5,h6,p,li,span,.section-heading){color:#0f172a !important}
+/* Hero is full-bleed and controls its own height */
+.cms-section.cms-hero{padding-top:0 !important;padding-bottom:0 !important}
+
+/* --- Header: colors & layout variants --- */
+.site-header{--header-bg:#fff;--header-text:#334155}
+.main-nav{background:var(--header-bg)}
+.main-nav .nav-link{color:var(--header-text)}
+.main-nav .navbar-brand .brand-text{color:var(--header-text)}
+.header-cta{white-space:nowrap}
+/* centered layout */
+.header-centered .navbar-brand{font-size:1.2rem}
+.header-centered .main-nav .navbar-nav{justify-content:center}
+/* split layout */
+.header-split .navbar-brand{margin:0}
+/* minimal layout: lighter chrome */
+.header-minimal .main-nav{box-shadow:0 1px 0 rgba(0,0,0,.06)}
+/* transparent header overlaying the hero */
+.site-header.is-transparent{position:absolute;top:0;left:0;right:0;z-index:1030}
+.site-header.is-transparent .topbar{background:transparent}
+.site-header.is-transparent .main-nav{background:transparent;box-shadow:none}
+.site-header.is-transparent .nav-link,
+.site-header.is-transparent .navbar-brand .brand-text{color:#fff}
+.site-header.is-transparent .navbar-toggler{filter:invert(1)}
+.site-header.is-transparent.is-sticky.scrolled .main-nav{background:var(--header-bg);box-shadow:0 2px 18px rgba(0,0,0,.08)}
+.site-header.is-transparent.scrolled .nav-link,
+.site-header.is-transparent.scrolled .navbar-brand .brand-text{color:var(--header-text)}
+
+/* --- Footer: colors & layout variants --- */
+.site-footer{background:var(--footer-bg,var(--c-secondary));color:var(--footer-text,#cbd5e1)}
+.site-footer.footer-minimal{padding:26px 0}
+.site-footer.footer-simple{padding:48px 0 26px}
+.site-footer.footer-minimal .footer-links a,.site-footer.footer-simple .footer-links a{color:inherit;opacity:.85}
+.footer-newsletter .form-control{border:none}
+@media(max-width:991px){
+  .header-split .navbar-nav{text-align:center}
+  .header-centered .navbar-collapse{text-align:center}
+}

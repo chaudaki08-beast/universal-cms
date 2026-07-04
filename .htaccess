@@ -1,0 +1,47 @@
+# ============================================================
+#  Universal CMS - Root .htaccess (cPanel / Apache)
+#  Routes all non-file requests through the front controller.
+# ============================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # If deployed in a subfolder e.g. example.com/cms/, set the base:
+    # RewriteBase /cms/
+
+    # Block direct access to sensitive directories
+    RewriteRule ^(app|config|storage)/ - [F,L]
+
+    # Allow real files and directories to be served directly
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Everything else -> index.php front controller
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Security hardening -----------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Protect dotfiles and config
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+<FilesMatch "\.(sql|env|log|md)$">
+    Require all denied
+</FilesMatch>
+
+# PHP settings (cPanel typically honours these)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 16M
+    php_value post_max_size 18M
+    php_flag display_errors Off
+</IfModule>
